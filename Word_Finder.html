@@ -1,0 +1,67 @@
+<!-- Name: Rizwan Ali Jandan
+	Reg.No: 2018395 -->
+	
+<!-- Collaboraters:
+	Shahzaib Hayat
+ -->
+
+<!DOCTYPE html>
+<html>
+	
+<head>
+	<title>
+		Word Finder
+	</title>
+	
+	<!-- linking the stylesheet(CSS) -->
+	<link rel="stylesheet" type="text/css" href="./style-search.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="./search.js"></script>
+    <script type="text/javascript" src="words-small.json"></script>
+	<!-- I have used small words file instead of large words file because the page ask to wait for response-->
+	
+	<!-- <script type="text/javascript" src="words-large.json"></script> -->
+</head>
+
+<body>
+	<div class="heading"><h1 class="heading">Word Finder</h1><i class="fa fa-search"></i></div>
+	<table id="list-table" style="width: 100%">
+        <tr>
+          <th>
+            <h3 class="totalwords">
+              <script>
+                document.write("Total Words: ", words.length);
+              </script>
+            </h3>
+          </th>
+		  <br/>
+          <th>
+            <h3 id="match">Matched Words: 0</h3>
+          </th>
+        </tr>
+      </table>
+	<!-- input tag to get substring from user to match the word -->
+	<div class="find">
+		<input id="searchbar" onkeyup="search_word()" type="text"
+		name="search" placeholder="Search Words.." style="margin:auto;max-width:300px"><i class="fa fa-search"></i>
+	</div>
+	
+	
+	<!-- This tag create list and using javascript createElement function we create its li to add words-->
+	<ol id="list"></ol>
+	  
+	<!-- linking javascript -->
+	<!-- This below function used to print all words in list using li and ul tag -->
+    <script>
+		for(i=0;i<words.length;i++){
+			var ul = document.getElementById("list");
+			//this createElement make li tag in which the words will be placed
+			var li = document.createElement("li");
+			li.className = "words";
+			li.innerHTML=words[i];
+			ul.appendChild(li);
+		}
+    </script>
+</body>
+
+</html>
